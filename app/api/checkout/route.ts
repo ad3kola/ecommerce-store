@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       success_url: "http://localhost:3000/success",
     });
 
-    return NextResponse.json({url: session.url})
+    return NextResponse.json({ url: session.url });
   } catch (err) {
     console.log(err);
   }
