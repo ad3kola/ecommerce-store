@@ -28,8 +28,8 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       line_items: transformedCart,
       mode: "payment",
-      cancel_url: "http://localhost:3000/cancelled",
-      success_url: "http://localhost:3000/success",
+      cancel_url: "https://adekola-webdevs-ecommerce-store.vercel.app/cancelled",
+      success_url: "https://adekola-webdevs-ecommerce-store.vercel.app/success",
     });
 
     return NextResponse.json({ url: session.url });
