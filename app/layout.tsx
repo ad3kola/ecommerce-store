@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import TopNav from "@/components/TopNav";
+import AuthProvider from "@/components/AuthProvider";
+import ThemeProvider from "@/components/ThemeProvider";
+import ReduxProvider from "@/components/ReduxProvider";
+import { Toaster } from "@/components/ui/toaster"
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +21,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html suppressHydrationWarning lang="en" className='scroll-smooth'>
+      <body className={`${inter.className} scroll-smooth`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ReduxProvider>
+            <AuthProvider>
+              <TopNav />
+              {children}
+              <Footer />
+            </AuthProvider>
+          </ReduxProvider>
+          <Toaster />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
