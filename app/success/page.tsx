@@ -50,7 +50,7 @@ function Success() {
         <BadgeCheckIcon className="h-28 w-28 text-green-500" />
         <h3 className="text-2xl font-bold tracking-wider text-center flex flex-col items-center justify-center">
             Payment Successful :D
-          <span className='block mt-1'>Thanks for your shopping at Adekola's E-Commerce Store</span>
+          <span className='block mt-1'>Thanks for shopping at Adekola's E-Commerce Store</span>
         </h3>
         <Link href="/">
           <Button className="font-semibold py-6">
